@@ -174,3 +174,5 @@ Bundle 'OmniCppComplete'
 Bundle 'taglist.vim'
 
 filetype plugin indent on
+
+set rtp+=/Library/Python/2.7/site-packages/powerline/bindings/vim
