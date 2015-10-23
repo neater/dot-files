@@ -5,6 +5,8 @@ export ZSH=/Users/link/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
+#ZSH_THEME="powerline"
+#ZSH_THEME="aussiegeek"
 ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -45,11 +47,10 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git bundler osx rake ruby xcode adb autojump z gem bundler pod)
+plugins=(git bundler rake osx ruby xcode adb autojump z gem pod zsh-syntax-highlighting colored-man sudo rails brew)
 
 # User configuration
 
-export PATH="/Users/link/.rvm/gems/ruby-2.0.0-p645/bin:/Users/link/.rvm/gems/ruby-2.0.0-p645@global/bin:/Users/link/.rvm/rubies/ruby-2.0.0-p645/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/apache-ant-1.8.2/bin:/Applications/android-sdk-macosx/platform-tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/link/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -82,8 +83,57 @@ source $ZSH/oh-my-zsh.sh
 PROMPT='%{$fg_bold[red]%}➜ %{$fg_bold[green]%}%p%{$fg[cyan]%}%d %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%}% %{$reset_color%}>'
 
 export HISTSIZE=200000
-export HISTTIMEFORMAT="[%F] "
+#export HISTTIMEFORMAT="[%F] "
+#为历史纪录中的命令添加时间戳
+setopt EXTENDED_HISTORY
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
+export PATH="/Users/link/iPart3/wifi/theos/bin:/Users/link/.rvm/gems/ruby-2.0.0-p645/bin:/Users/link/.rvm/gems/ruby-2.0.0-p645@global/bin:/Users/link/.rvm/rubies/ruby-2.0.0-p645/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/apache-ant-1.8.2/bin:/Applications/android-sdk-macosx/platform-tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/link/.rvm/bin"
 
+export JAVA8_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home"
+export JAVA7_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home"
+
+. /Library/Python/2.7/site-packages/powerline/bindings/bash/powerline.sh
+
+alias -s txt=vi
+alias -s erb=vi
+alias -s rb=vi
+alias -s scss=vi
+alias -s js=vi
+alias rls=rails
+alias rake="noglob rake"
+alias gs="git status"
+alias pod-update='pod update --verbose --no-repo-update'
+#使用vim打开上次的文件
+alias lvim="vim -c \"normal '0\""
+
+cls() { cd "$1"; ls;}
+backup() { cp "$1"{,.bak};}
+md5check() { md5sum "$1" | grep "$2";}
+
+explain () {
+  if [ "$#" -eq 0 ]; then
+    while read  -p "Command: " cmd; do
+      curl -Gs "https://www.mankier.com/api/explain/?cols="$(tput cols) --data-urlencode "q=$cmd"
+    done
+    echo "Bye!"
+  elif [ "$#" -eq 1 ]; then
+    curl -Gs "https://www.mankier.com/api/explain/?cols="$(tput cols) --data-urlencode "q=$1"
+  else
+    echo "Usage"
+    echo "explain                  interactive mode."
+    echo "explain 'cmd -o | ...'   one quoted command to explain it."
+  fi
+}
+
+
+# shell vi mode prompt
+#VIMODE='-- INSERT --'
+#function zle-line-init zle-keymap-select {
+#VIMODE="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+#zle reset-prompt
+#}
+#zle -N zle-line-init
+#zle -N zle-keymap-select""''
+#RPROMPT='%{$fg[green]%}${VIMODE}%{$reset_color%}'

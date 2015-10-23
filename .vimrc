@@ -69,7 +69,7 @@ set noswapfile
 set cursorline
 set ruler
 set laststatus=2
-set paste
+"set paste
 
 ""set tag=tags;../tags;../../tags;../../../tags;../../../../../tags;../../../../../../tags;../../../../../../../../tags;
 set dict=~/vim
@@ -90,6 +90,7 @@ let g:instant_markdown_autostart = 0
 
 let mapleader = ","
 map <silent> <leader>tl :TlistToogle<cr>
+map <silent> <leader>p :set paste<cr>
 
 set winaltkeys=no
 "imap <C-k> <Up>
@@ -105,14 +106,15 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-imap {} {}<LEFT><CR><ESC>O
 "imap [] []<LEFT>
 "imap () ()<LEFT>
 "imap <> <><LEFT>
 "imap "" ""<LEFT>
-imap '' ''<LEFT>
-imap ?? /**/<left><left>
-
+"imap '' ''<LEFT>
+"imap ?? /**/<left><left>
+inoremap {} {}<LEFT><CR><ESC>O
+inoremap ?? /**/<left><left>
+inoremap ' ''<ESC>i
 inoremap ( ()<ESC>i
 inoremap < <><ESC>i
 inoremap " ""<ESC>i
@@ -166,13 +168,22 @@ endf
 set nocompatible " be iMproved, required
 filetype off " required
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+"call vundle#rc()
+call vundle#begin()
 
 Bundle 'gmarik/vundle'
-Bundle 'c.vim'
-Bundle 'OmniCppComplete'
-Bundle 'taglist.vim'
+"Plugin 'OmniCppComplete'
+"Plugin 'taglist.vim'
+"Plugin 'rails.vim'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-rails'
+Bundle 'majutsushi/tagbar'
+Bundle 'vim-ruby/vim-ruby'
+Bundle "Lokaltog/vim-easymotion"
+"Plugin 'ruby.vim'
 
+call vundle#end()
+  
 filetype plugin indent on
 
 set rtp+=/Library/Python/2.7/site-packages/powerline/bindings/vim
