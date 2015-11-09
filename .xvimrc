@@ -1,0 +1,46 @@
+
+set nocompatible " be iMproved, required
+set showmode
+set showcmd		" Show (partial) command in status line.
+set showmatch		" Show matching brackets.
+set ignorecase		" Do case insensitive matching
+"set smartcase		" Do smart case matching
+set incsearch		" Incremental search
+"set autowrite		" Automatically save before commands like :next and :make
+"set hidden             " Hide buffers when they are abandoned
+set mouse=a		" Enable mouse usage (all modes) in terminals
+set helplang=cn
+set nu
+set nohls
+set fileencodings=utf-8,ucs,gb18030,GB2312,GBK,Big5,cp936
+set autoindent
+set autoread
+set cindent
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set autochdir
+set expandtab
+set winaltkeys=no
+set noswapfile
+set cursorline
+set ruler
+set laststatus=2
+
+inoremap {} {}<LEFT><CR><ESC>O
+inoremap ?? /**/<left><left>
+inoremap ' ''<ESC>i
+inoremap ( ()<ESC>i
+inoremap < <><ESC>i
+inoremap " ""<ESC>i
+inoremap [ []<ESC>i
+
+nmap <Space> :
+inoremap  <C-u> <D-Del>
+cnoremap ,, <C-u> <Esc>
+nnoremap // I//<Esc>
+vnoremap // I//<Esc>
+"noremap <C-e> <Nop>
+inoremap <C-e> <D-Right>
+
