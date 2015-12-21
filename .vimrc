@@ -91,6 +91,8 @@ let g:instant_markdown_autostart = 0
 let mapleader = ","
 map <silent> <leader>tl :TlistToogle<cr>
 map <silent> <leader>p :set paste<cr>
+map <silent> <leader>c :CtrlP<cr>
+map <silent> <leader>e :e ~/.vimrc<cr>
 
 set winaltkeys=no
 "imap <C-k> <Up>
@@ -181,9 +183,30 @@ Bundle 'majutsushi/tagbar'
 Bundle 'vim-ruby/vim-ruby'
 Bundle "Lokaltog/vim-easymotion"
 "Plugin 'ruby.vim'
+Plugin 'snipMate'
+Plugin 'ctrlp.vim'
+Plugin 'ack.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'nerdtree-ack'
+Plugin 'splitjoin.vim'
 
 call vundle#end()
   
 filetype plugin indent on
 
 set rtp+=/Library/Python/2.7/site-packages/powerline/bindings/vim
+set clipboard=unnamed
+
+"为不同的文件类型设置不同的空格数替换TAB
+"autocmd FileType php,python,c,java,perl,shell,bash,vim,ruby,cpp set ai
+"autocmd FileType php,python,c,java,perl,shell,bash,vim,ruby,cpp set sw=4
+"autocmd FileType php,python,c,java,perl,shell,bash,vim,ruby,cpp set ts=4
+"autocmd FileType php,python,c,java,perl,shell,bash,vim,ruby,cpp set sts=4
+"autocmd FileType javascript,html,css,xml set ai
+"autocmd FileType javascript,html,css,xml set sw=2
+"autocmd FileType javascript,html,css,xml set ts=2
+"autocmd FileType javascript,html,css,xml set sts=2
+""
+autocmd FileType ruby set sw=2
+autocmd FileType ruby set ts=2
+autocmd FileType ruby set sts=2
