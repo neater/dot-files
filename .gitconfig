@@ -1,0 +1,22 @@
+[user]
+[color]
+	ui = true
+	status = auto
+	diff = auto
+	branch = auto
+	interactive = auto
+[alias]
+	lg = log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+[core]
+	editor = /usr/bin/vi
+[push]
+	default = simple
+[user]
+	name = neater
+	email = zhangwenxiao008@gmail.com
+[http]
+    #proxy = http://hx.gy:1080
