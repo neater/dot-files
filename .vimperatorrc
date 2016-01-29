@@ -1,0 +1,64 @@
+"3.2 (created: 2011/06/03 11:51:34)
+
+set hintchars=sdfjkleiwo
+abbreviate gs 更新的好快啊，一定很精彩
+abbreviate zwx zhangwenxiao008@163.com
+cnoremap <C-c> <C-v><C-c>
+cnoremap <C-a> <C-v><C-a>
+cnoremap <C-e> <C-v><C-e>
+cnoremap <C-v> <C-v><C-v>
+cnoremap <C-x> <C-v><C-x>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+"cnoremap ,, <Esc>
+"inoremap ,, <Esc> 
+"map <C-p> <C-v><Esc>
+inoremap <C-c> <M-c>
+inoremap <C-v> <M-v>
+inoremap <C-x> <C-v><C-x>
+inoremap <C-z> <C-v><C-z>
+inoremap <C-y> <M-v>
+cnoremap <C-a> <C-v><C-a>
+cnoremap <C-e> <C-v><C-e>
+"cnoremap ee <Esc>
+"inoremap ee <Esc>
+map <BS> gU
+"inoremap <C-i> <BS>
+"cnoremap <C-i> <BS>
+noremap j 10j
+noremap k 10k
+noremap J <C-d>
+noremap K <C-u>
+noremap h gT
+noremap l gt
+noremap H h
+noremap L l
+noremap A <Nop>
+noremap > g$
+noremap gl :tabmove<CR>
+noremap <lt> g0
+noremap , <C-o>
+noremap . <C-i>
+"noremap "\\" <C-v><M-d>
+noremap \" <C-v><M-d>
+noremap <C-l> <C-v><C-l>
+noremap <C-c> <C-v><C-c>
+noremap <C-a> <C-v><C-a>
+noremap <C-l> <M-l>
+noremap <C-t> <M-t>
+noremap ; F
+let mapleader="`"
+map <leader>s :source ~/.vimperatorrc<CR>
+
+
+set "nextpattern=s*下一页|下一张|下一篇|下一頁|下页|后页s*,^bnextb,\\bnext\\b,^>$,^(>>|»)$,^(>|»),(>|»)$,\\bmore\\b"
+set "previouspattern=s*上一页|上一张|上一篇|上一頁|上页|前页s*,^bprev|previousb,\\bprev|previous\\b,^<$,^(<<|«)$,^(<|«),(<|«)$"
+
+set runtimepath=~/.vimperator
+set tabnumbers=true
+source! ~/.vimperatorrc.local
+"inoremap <C-i> <BS>
+"cnoremap <C-i> <BS>
+"noremap <C-i> <BS>
+
+" vim: set ft=vimperator:
