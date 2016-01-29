@@ -137,3 +137,16 @@ explain () {
 #zle -N zle-line-init
 #zle -N zle-keymap-select""''
 #RPROMPT='%{$fg[green]%}${VIMODE}%{$reset_color%}'
+#
+# tuxingsun.net
+#
+function start_tuproxy {
+    export http_proxy='eagle.3.14159.in:20597'
+    export HTTPS_PROXY='eagle.3.14159.in:20597'
+}
+
+function stop_tuproxy {
+    export http_proxy=
+    export HTTPS_PROXY=
+}
+
